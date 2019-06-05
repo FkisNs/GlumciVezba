@@ -1,16 +1,14 @@
 package com.ftninformatika.glumcivezba.fragments;
 
-import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +17,33 @@ import com.ftninformatika.glumcivezba.providers.GlumacProvider;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 public class FragmentPodatak extends Fragment {
     private int position = 0;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        // Shows a toast message (a pop-up message)
+        Toast.makeText(getActivity(), "FragmentPodatak.onCreate()", Toast.LENGTH_SHORT).show();
+
+        if (savedInstanceState != null) {
+            position = savedInstanceState.getInt("position");
+        }
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        // Shows a toast message (a pop-up message)
+        Toast.makeText(getActivity(), "FragmentPodatak.onCreateView()", Toast.LENGTH_SHORT).show();
+
+        // Finds view in the view hierarchy and returns it.
+        return inflater.inflate(R.layout.fragment_podatak, container, false);
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -61,6 +82,22 @@ public class FragmentPodatak extends Fragment {
         RatingBar rbRating = (RatingBar) getView().findViewById(R.id.rb_ocena);
         rbRating.setRating(GlumacProvider.getGlumacById(position).getOcena());
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+        super.onSaveInstanceState(savedInstanceState);
+
+        // Shows a toast message (a pop-up message)
+        Toast.makeText(getActivity(), "FragmentPodatak.onSaveInstanceState()", Toast.LENGTH_SHORT).show();
+
+        savedInstanceState.putInt("position", position);
+    }
+    public void setContent(final int position) {
+
+        this.position = position;
+
+        Log.v("FragmentPodatak", "setContent() sets position to " + position);
+    }
 
     public void updateContent(final int position) {
 
@@ -92,10 +129,5 @@ public class FragmentPodatak extends Fragment {
         RatingBar rbRating = (RatingBar) getView().findViewById(R.id.rb_ocena);
         rbRating.setRating(GlumacProvider.getGlumacById(position).getOcena());
 }
-    public void setContent(final int position) {
 
-        this.position = position;
-
-        Log.v("DetailFragment", "setContent() sets position to " + position);
-    }
 }

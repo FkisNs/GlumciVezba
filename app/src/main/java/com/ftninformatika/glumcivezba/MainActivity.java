@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements FragmentSpisak.On
 
         super.onCreate(savedInstanceState);
 
-        Toast.makeText(getBaseContext(), "FirstActivity.onCreate()", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), "MainActivity.onCreate()", Toast.LENGTH_SHORT).show();
 
         setContentView(R.layout.activity_main);
 
@@ -38,16 +38,36 @@ public class MainActivity extends AppCompatActivity implements FragmentSpisak.On
         fragmentPodatak.setContent(position);
         if (findViewById(R.id.detail_view) != null) {
             landscape = true;
-            getFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack();
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.detail_view, fragmentPodatak, "Fragment_Podatak_1");
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             ft.commit();
         }
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+        super.onSaveInstanceState(savedInstanceState);
+
+        // Shows a toast message (a pop-up message)
+        Toast.makeText(this, "MainActivity.onSaveInstanceState()", Toast.LENGTH_SHORT).show();
+
+        savedInstanceState.putInt("position", position);
+    }
 
     @Override
     public void OnItemSelected(int position) {
-
+        this.position = position;
+        if(landscape){
+            fragmentPodatak.updateContent(position);
+        }else{
+            fragmentPodatak.setContent(position);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.master_view, fragmentPodatak, "Fragment_Podatak_1");
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.addToBackStack(null);
+            ft.commit();
+        }
     }
 }

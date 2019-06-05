@@ -1,7 +1,5 @@
 package com.ftninformatika.glumcivezba.models;
 
-import java.util.Date;
-
 public class Glumci {
     private int id;
     private String ime;

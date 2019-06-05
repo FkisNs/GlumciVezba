@@ -1,7 +1,6 @@
 package com.ftninformatika.glumcivezba.fragments;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,14 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.ftninformatika.glumcivezba.MainActivity;
 import com.ftninformatika.glumcivezba.R;
 import com.ftninformatika.glumcivezba.providers.GlumacProvider;
 
 import java.util.List;
 
 public class FragmentSpisak extends Fragment {
-
+//ovo je komentar
     public interface OnItemSelectedListener{
         void OnItemSelected(int position);
     }
@@ -43,7 +41,7 @@ public class FragmentSpisak extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Shows a toast message (a pop-up message)
-        Toast.makeText(getActivity(), "MasterFragment.onCreateView()", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "FragmentSpisak.onCreateView()", Toast.LENGTH_SHORT).show();
 
         if (container == null) {
             return null;

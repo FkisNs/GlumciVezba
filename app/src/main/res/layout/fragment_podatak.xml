@@ -13,14 +13,14 @@
         android:id="@+id/tv_ime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/iv_image"/>
+        android:layout_below="@id/iv_image"/>
 
     <TextView
         android:id="@+id/tv_prezime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/tv_ime"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@id/tv_ime"/>
 
     <TextView
@@ -28,13 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_prezime"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentStart="true"/>
     <TextView
         android:id="@+id/tv_datum"
         android:layout_below="@id/tv_biografija"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentStart="true"/>
     <TextView
         android:id="@+id/tv_filmovi"
         android:layout_below="@id/tv_datum"
