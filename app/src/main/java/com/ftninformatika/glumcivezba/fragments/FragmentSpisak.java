@@ -17,7 +17,7 @@ import com.ftninformatika.glumcivezba.providers.GlumacProvider;
 import java.util.List;
 
 public class FragmentSpisak extends Fragment {
-//ovo je komentar
+//ovo je komentar ovde vamo
     public interface OnItemSelectedListener{
         void OnItemSelected(int position);
     }
