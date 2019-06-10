@@ -17,7 +17,7 @@ import com.ftninformatika.glumcivezba.providers.GlumacProvider;
 import java.util.List;
 
 public class FragmentSpisak extends Fragment {
-//ovo je komentar ovde vamo
+
     public interface OnItemSelectedListener{
         void OnItemSelected(int position);
     }
@@ -60,7 +60,7 @@ public class FragmentSpisak extends Fragment {
         final List<String> glumacNames = GlumacProvider.getGlumacNames();
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), R.layout.list_glumci, glumacNames);
-        ListView listView = (ListView) getActivity().findViewById(R.id.list_of_glumci);
+        ListView listView = (ListView) getView().findViewById(R.id.list_of_glumci);
 
         listView.setAdapter(dataAdapter);
 
